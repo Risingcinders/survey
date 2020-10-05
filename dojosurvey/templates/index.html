@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Look at the Time!</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    </head>
+    <body>
+        <div id="wrapper">
+            <form action="/users" method="post">
+                {% csrf_token %} Your Name:
+                <input type="text" name="name" />
+                <br />
+                Dojo Location:
+                <select name="location" id="locations">
+                    <option value="chicago">Chicago</option>
+                    <option value="seattle">Seattle</option>
+                    <option value="moonuniversity">Moon U (Coming Soon)</option>
+                </select>
+                <br />
+                Favorite Language:
+                <select name="language" id="languages">
+                    <option value="python">Python</option>
+                    <option value="java">Java</option>
+                    <option value="javascript">Javascript</option>
+                </select>
+                <br />
+                Comment (otional):
+                <textarea
+                    name="comment"
+                    id="comments"
+                    cols="30"
+                    rows="10"
+                ></textarea>
+                <br />
+                Would you like a snack?
+                <br />
+                <label for="snack">
+                    Donuts:
+                    <input type="radio" name="snack" value="donuts" />
+                </label>
+                <label for="chicken">
+                    One (1) Chicken:
+                    <input type="radio" name="snack" value="chicken" />
+                </label>
+                <br />
+                Do you like dogs or cats?
+                <label>
+                    <input type="checkbox" name="pets[]" value="Dogs">Dogs
+                </label>
+                <label>
+                    <input type="checkbox" name="pets[]" value="Cats">Cats
+                </label>
+                <br />
+                <button type="submit">Create User</button>
+            </form>
+        </div>
+
+        {# <img src="{% static 'img/my_img.png' %}" /> #}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="{% static 'js/script.js' %}"></script>
+    </body>
+</html>
